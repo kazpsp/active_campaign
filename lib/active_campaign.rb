@@ -1,5 +1,7 @@
-require "active_campaign/version"
+require_relative "active_campaign/version"
 
 module ActiveCampaign
-  # Your code goes here...
+  class << self # :nodoc: all
+    attr_accessor :api_key, :api_output
+  end
 end
