@@ -2,11 +2,6 @@ require_relative "active_campaign/version"
 require 'httparty'
 
 module ActiveCampaign
-  # class << self # :nodoc: all
-  #   attr_accessor :api_key, :api_output
-  # end
-
-
   class Client
     attr_accessor :api_key, :ac_uri
     include HTTParty
@@ -21,6 +16,11 @@ module ActiveCampaign
     def list_add(params={})
       params.merge!({api_key: @api_key, api_action: 'list_add', api_output: @api_output})
       self.class.post('/', body: params)
+    end
+
+    def list_list(params={})
+      params.merge!({api_key: @api_key, api_action: 'list_list', api_output: @api_output})
+      self.class.get('/', query: params)
     end
   end
 end

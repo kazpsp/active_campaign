@@ -24,6 +24,7 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'webmock', '~> 1.11.0'
   gem.add_development_dependency 'guard-rspec'
   gem.add_development_dependency 'activesupport'
+  gem.add_development_dependency 'httplog'
 
   gem.add_runtime_dependency 'httparty'
 end

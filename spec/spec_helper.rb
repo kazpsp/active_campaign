@@ -3,6 +3,7 @@ require 'vcr'
 require 'webmock'
 require 'pry'
 require 'active_support/core_ext'
+require 'httplog'
 
 APP_ROOT = File.expand_path('../../', __FILE__)
 
