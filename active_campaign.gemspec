@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = ActiveCampaign::VERSION
   gem.authors       = ["Millisami"]
   gem.email         = ["millisami@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{A Ruby wrapper for ActiveCampaign.com API}
+  gem.summary       = %q{Wrapper for ActiveCampaign.com API}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)
@@ -21,7 +21,9 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'pry'
   gem.add_development_dependency 'json'
   gem.add_development_dependency 'vcr'
-  gem.add_development_dependency 'fakeweb'
+  gem.add_development_dependency 'webmock', '~> 1.11.0'
+  gem.add_development_dependency 'guard-rspec'
+  gem.add_development_dependency 'activesupport'
 
   gem.add_runtime_dependency 'httparty'
 end

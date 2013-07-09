@@ -1,7 +1,26 @@
 require_relative "active_campaign/version"
+require 'httparty'
 
 module ActiveCampaign
-  class << self # :nodoc: all
-    attr_accessor :api_key, :api_output
+  # class << self # :nodoc: all
+  #   attr_accessor :api_key, :api_output
+  # end
+
+
+  class Client
+    attr_accessor :api_key, :ac_uri
+    include HTTParty
+    base_uri "https://tfm.api-us1.com/admin/api.php"
+
+    def initialize(ac_uri, api_key, api_output = 'json')
+      @api_key = api_key
+      @ac_uri  = ac_uri
+      @api_output = api_output
+    end
+
+    def list_add(params={})
+      params.merge!({api_key: @api_key, api_action: 'list_add', api_output: @api_output})
+      self.class.post('/', body: params)
+    end
   end
 end
