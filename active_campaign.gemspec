@@ -25,6 +25,7 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'guard-rspec'
   gem.add_development_dependency 'activesupport'
   gem.add_development_dependency 'httplog'
+  gem.add_development_dependency 'rake'
 
   gem.add_runtime_dependency 'httparty'
 end

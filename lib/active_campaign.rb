@@ -7,10 +7,13 @@ module ActiveCampaign
     include HTTParty
     base_uri "https://tfm.api-us1.com/admin/api.php"
 
+
+
     def initialize(ac_uri, api_key, api_output = 'json')
       @api_key = api_key
       @ac_uri  = ac_uri
       @api_output = api_output
+      # self.class.default_params({api_key: @api_key, api_action: 'list_add', api_output: @api_output})
     end
 
     def list_add(params={})
@@ -21,6 +24,11 @@ module ActiveCampaign
     def list_list(params={})
       params.merge!({api_key: @api_key, api_action: 'list_list', api_output: @api_output})
       self.class.get('/', query: params)
+    end
+
+    def add_contact(params={})
+      params.merge!({api_key: @api_key, api_action: 'contact_add', api_output: @api_output})
+      self.class.post('/', body: params)
     end
   end
 end
