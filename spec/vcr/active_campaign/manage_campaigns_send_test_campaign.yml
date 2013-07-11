@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://tfm.api-us1.com/admin/api.php/?action=test&api_action=campaign_send&api_key=eeb0aae2459ee1c0d9a820342acc2d011902d5ff640c770d2821198973f7e6d2154a08f8&api_output=json&campaignid=2&email=millisami@gmail.com&messageid=27&type=mime
+    body:
+      encoding: US-ASCII
+      base64_string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - PHP/5.3.3
+      Set-Cookie:
+      - PHPSESSID=a9e3u3kqaunlr8j0g6jui3s9r0; path=/
+      - em_acp_globalauth_cookie=cdb9730a7400f13b7fc0e8e8a8689d611; path=/; domain=tfm.api-us1.com;
+        secure
+      - em_acp_globalauth_cookie=deleted; expires=Wed, 11-Jul-2012 06:39:24 GMT; path=/;
+        domain=tfm.api-us1.com; secure
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - no-store, max-age=0, must-revalidate
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Thu, 11 Jul 2013 06:39:25 GMT
+      Server:
+      - lighttpd/1.4.31
+    body:
+      encoding: US-ASCII
+      base64_string: ! 'eyJyZXN1bHQiOjEsInJlc3VsdF9jb2RlIjoxLCJyZXN1bHRfbWVzc2FnZSI6
+
+        Ik1lc3NhZ2Ugc2VudCIsInJlc3VsdF9vdXRwdXQiOiJqc29uIn0=
+
+'
+    http_version: 
+  recorded_at: Thu, 11 Jul 2013 06:39:25 GMT
+recorded_with: VCR 2.5.0

@@ -1,0 +1,74 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://tfm.api-us1.com/admin/api.php/
+    body:
+      encoding: US-ASCII
+      base64_string: ! 'Zm9ybWF0PW1pbWUmc3ViamVjdD1URVNUJTIwMSUyMG1lc3NhZ2UlMjB0ZW1w
+
+        bGF0ZSZmcm9tZW1haWw9dGVzdCU0MGdtYWlsLmNvbSZmcm9tbmFtZT1Kb2hu
+
+        JTIwRG9lJnJlcGx5Mj10ZXN0JTQwZ21haWwuY29tJnByaW9yaXR5PTMmY2hh
+
+        cnNldD1VVEYtOCZlbmNvZGluZz1xdW90ZWQtcHJpbnRhYmxlJmh0bWxjb25z
+
+        dHJ1Y3Rvcj1lZGl0b3ImaHRtbD0lM0NoMSUzRU15JTIwVGVzdCUyME1lc3Nh
+
+        Z2UlM0MlMkZoMSUzRSUwQSUwQSUzQ3AlM0VUaGlzJTIwaXMlMjBhJTIwdGVz
+
+        dCUyMG1lc3NhZ2UlMjBjcmVhdGVkJTIwdmlhJTIwdGhlJTIwQVBJLiUzQyUy
+
+        RnAlM0UmdGV4dGNvbnN0cnVjdG9yPWVkaXRvciZ0ZXh0PSUyMyUyME15JTIw
+
+        VGVzdCUyME1lc3NhZ2UlMEElMEFUaGlzJTIwaXMlMjBhJTIwdGVzdCUyMG1l
+
+        c3NhZ2UlMjBjcmVhdGVkJTIwdmlhJTIwdGhlJTIwQVBJLiZwWzldPTkmYXBp
+
+        X2tleT1lZWIwYWFlMjQ1OWVlMWMwZDlhODIwMzQyYWNjMmQwMTE5MDJkNWZm
+
+        NjQwYzc3MGQyODIxMTk4OTczZjdlNmQyMTU0YTA4ZjgmYXBpX2FjdGlvbj1t
+
+        ZXNzYWdlX2FkZCZhcGlfb3V0cHV0PWpzb24=
+
+'
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - PHP/5.3.3
+      Set-Cookie:
+      - PHPSESSID=h46q22am014n73e3330bejmc90; path=/
+      - em_acp_globalauth_cookie=cdb9730a7400f13b7fc0e8e8a8689d611; path=/; domain=tfm.api-us1.com;
+        secure
+      - em_acp_globalauth_cookie=deleted; expires=Wed, 11-Jul-2012 06:12:53 GMT; path=/;
+        domain=tfm.api-us1.com; secure
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - no-store, max-age=0, must-revalidate
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Thu, 11 Jul 2013 06:12:54 GMT
+      Server:
+      - lighttpd/1.4.31
+    body:
+      encoding: US-ASCII
+      base64_string: ! 'eyJpZCI6MjcsInN1YmplY3QiOiJURVNUIDEgbWVzc2FnZSB0ZW1wbGF0ZSIs
+
+        InJlc3VsdF9jb2RlIjoxLCJyZXN1bHRfbWVzc2FnZSI6IkVtYWlsIE1lc3Nh
+
+        Z2UgYWRkZWQiLCJyZXN1bHRfb3V0cHV0IjoianNvbiJ9
+
+'
+    http_version: 
+  recorded_at: Thu, 11 Jul 2013 06:12:54 GMT
+recorded_with: VCR 2.5.0
