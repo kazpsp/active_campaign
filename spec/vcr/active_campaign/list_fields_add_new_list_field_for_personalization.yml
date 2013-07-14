@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://tfm.api-us1.com/admin/api.php/
+    body:
+      encoding: US-ASCII
+      base64_string: ! 'dGl0bGU9QmlydGhkYXkmdHlwZT0xJnJlcT0xJnNob3dfaW5fbGlzdD0xJnBl
+
+        cnN0YWc9QklSVEhEQVRFJnBbOV09OSZhcGlfa2V5PWVlYjBhYWUyNDU5ZWUx
+
+        YzBkOWE4MjAzNDJhY2MyZDAxMTkwMmQ1ZmY2NDBjNzcwZDI4MjExOTg5NzNm
+
+        N2U2ZDIxNTRhMDhmOCZhcGlfYWN0aW9uPWxpc3RfZmllbGRfYWRkJmFwaV9v
+
+        dXRwdXQ9anNvbg==
+
+'
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - PHP/5.3.3
+      Set-Cookie:
+      - PHPSESSID=dhokh8j3jpvq45e1d1uahvc8e0; path=/
+      - em_acp_globalauth_cookie=cdb9730a7400f13b7fc0e8e8a8689d611; path=/; domain=tfm.api-us1.com;
+        secure
+      - em_acp_globalauth_cookie=deleted; expires=Sat, 14-Jul-2012 13:54:37 GMT; path=/;
+        domain=tfm.api-us1.com; secure
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - no-store, max-age=0, must-revalidate
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Sun, 14 Jul 2013 13:54:38 GMT
+      Server:
+      - lighttpd/1.4.31
+    body:
+      encoding: US-ASCII
+      base64_string: ! 'eyJmaWVsZGlkIjo0LCJyZXN1bHRfY29kZSI6MSwicmVzdWx0X21lc3NhZ2Ui
+
+        OiJDdXN0b20gRmllbGQgYWRkZWQiLCJyZXN1bHRfb3V0cHV0IjoianNvbiJ9
+
+'
+    http_version: 
+  recorded_at: Sun, 14 Jul 2013 13:54:37 GMT
+recorded_with: VCR 2.5.0

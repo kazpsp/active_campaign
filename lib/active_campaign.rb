@@ -21,6 +21,11 @@ module ActiveCampaign
       self.class.post('/', body: params)
     end
 
+    def list_field_add(params={})
+      params.merge!({api_key: @api_key, api_action: 'list_field_add', api_output: @api_output})
+      self.class.post('/', body: params)
+    end
+
     def list_list(params={})
       params.merge!({api_key: @api_key, api_action: 'list_list', api_output: @api_output})
       self.class.get('/', query: params)

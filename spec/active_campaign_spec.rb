@@ -34,6 +34,17 @@ describe ActiveCampaign do
     end
   end
 
+  context "list fields", :vcr, record: :new_episodes do
+    it "add new list field for personalization" do
+      params = { title: 'Birthday', type: "1", req: "1", show_in_list: "1", perstag: "BIRTHDATE",
+                 :"p[9]"=>"9" }
+
+      response = client.list_field_add(params)
+      expect(response['result_code']).to eql(1)
+      expect(response['result_message']).to eql("Custom Field added")
+    end
+  end
+
   context "manage contacts" do
     it "add new contact", :vcr, record: :new_episodes do
       params = {:email => 'user1@test.com', :first_name => 'User1', :last_name => 'Last1', :'p[9]' => '9'}
