@@ -17,6 +17,7 @@ module ActiveCampaign
     end
 
     def list_add(params={})
+      raise ArgumentError, 'Query params must be a hash' unless params.is_a?(Hash)
       params.merge!({api_key: @api_key, api_action: 'list_add', api_output: @api_output})
       self.class.post('/', body: params)
     end
