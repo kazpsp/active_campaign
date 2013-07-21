@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=640" />
+
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)"/>
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+
+    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+    <title>Active campaign by millisami</title>
+  </head>
+
+  <body>
+    <a id="forkme_banner" href="https://github.com/millisami/active_campaign">View on GitHub</a>
+    <div class="shell">
+
+      <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>Active campaign</h1>
+            <h2>Ruby wrapper for active activecampaign.com</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header>
+
+      <section id="downloads">
+        <span class="inner">
+          <a href="https://github.com/millisami/active_campaign/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/millisami/active_campaign/tarball/master" class="tgz"><em>download</em> .TGZ</a>
+        </span>
+      </section>
+
+
+      <span class="banner-fix"></span>
+
+
+      <section id="main_content">
+        <h1>
+<a name="activecampaign" class="anchor" href="#activecampaign"><span class="octicon octicon-link"></span></a>ActiveCampaign</h1>
+
+<p>Ruby wrapper for (ActiveCampaign)[<a href="http://activecampaign.com">http://activecampaign.com</a>] API</p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>Add this line to your application's Gemfile:</p>
+
+<pre><code>gem 'active_campaign'
+</code></pre>
+
+<p>And then execute:</p>
+
+<pre><code>$ bundle
+</code></pre>
+
+<p>Or install it yourself as:</p>
+
+<pre><code>$ gem install active_campaign
+</code></pre>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<ol>
+<li>Initialize the client</li>
+</ol><div class="highlight"><pre><span class="n">client</span> <span class="o">=</span> <span class="ss">ActiveCampaign</span><span class="p">:</span><span class="ss">:Client</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">'https://your-domain.api-us1.com'</span><span class="p">,</span> <span class="s1">'api-key'</span><span class="p">)</span>
+</pre></div>
+
+<ol>
+<li>Create a List</li>
+</ol><div class="highlight"><pre><span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="nb">name</span><span class="p">:</span> <span class="s1">'Testing List'</span><span class="p">,</span> <span class="n">subscription_notify</span><span class="p">:</span> <span class="s1">'noitfy.me@test.com'</span><span class="p">,</span> <span class="n">unsubscription_notify</span><span class="p">:</span> <span class="s1">'notify.me@test.com'</span><span class="p">,</span> <span class="n">to_name</span><span class="p">:</span> <span class="s1">'Moderator'</span><span class="p">,</span> <span class="ss">carboncopy</span><span class="p">:</span> <span class="s1">'me@est.com'</span><span class="p">,</span> <span class="n">sender_name</span><span class="p">:</span> <span class="s1">'Your Name'</span><span class="p">,</span> <span class="n">sender_addr1</span><span class="p">:</span> <span class="s1">'Lazimpat'</span><span class="p">,</span> <span class="n">sender_city</span><span class="p">:</span> <span class="s1">'Kathmandu'</span><span class="p">,</span> <span class="n">sender_state</span><span class="p">:</span> <span class="s1">'Bagmati'</span><span class="p">,</span> <span class="n">sender_zip</span><span class="p">:</span> <span class="s1">'33000'</span><span class="p">,</span> <span class="n">sender_country</span><span class="p">:</span> <span class="s1">'Nepal'</span><span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">list_add</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+<span class="n">list_id</span> <span class="o">=</span> <span class="n">response</span><span class="o">[</span><span class="s2">"list_id"</span><span class="o">]</span>
+</pre></div>
+
+<ol>
+<li>Adding custom list fields for personalization</li>
+</ol><div class="highlight"><pre><span class="n">params</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">title</span><span class="p">:</span> <span class="s1">'Birthday'</span><span class="p">,</span> <span class="ss">perstag</span><span class="p">:</span> <span class="s2">"BIRTHDATE"</span><span class="p">,</span> <span class="ss">:"p[</span><span class="si">#{</span><span class="n">list_id</span><span class="si">}</span><span class="ss">]"</span><span class="o">=&gt;</span><span class="s2">"</span><span class="si">#{</span><span class="n">list_id</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="ss">type</span><span class="p">:</span> <span class="s2">"1"</span><span class="p">,</span> <span class="ss">req</span><span class="p">:</span> <span class="s2">"1"</span><span class="p">,</span> <span class="n">show_in_list</span><span class="p">:</span> <span class="s2">"1"</span> <span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">list_field_add</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+</pre></div>
+
+<ol>
+<li>Adding Contacts</li>
+</ol><div class="highlight"><pre><span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="ss">:"field[%BIRTHDATE%,0]"</span> <span class="o">=&gt;</span> <span class="s1">'1982 Jan 11'</span><span class="p">,</span> <span class="ss">:email</span> <span class="o">=&gt;</span> <span class="s1">'user2@test.com'</span><span class="p">,</span> <span class="ss">:first_name</span> <span class="o">=&gt;</span> <span class="s1">'User2'</span><span class="p">,</span> <span class="ss">:last_name</span> <span class="o">=&gt;</span> <span class="s1">'Last2'</span><span class="p">,</span> <span class="ss">:"p[</span><span class="si">#{</span><span class="n">list_id</span><span class="si">}</span><span class="ss">]"</span> <span class="o">=&gt;</span> <span class="s2">"</span><span class="si">#{</span><span class="n">list_id</span><span class="si">}</span><span class="s2">"</span><span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">contact_add</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+</pre></div>
+
+<ol>
+<li>Adding Message Template</li>
+</ol><div class="highlight"><pre><span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="ss">:format</span> <span class="o">=&gt;</span> <span class="s2">"mime"</span><span class="p">,</span>
+          <span class="ss">:subject</span> <span class="o">=&gt;</span> <span class="s2">"TEST 1 message template"</span><span class="p">,</span>
+          <span class="ss">:fromemail</span> <span class="o">=&gt;</span> <span class="s2">"test@gmail.com"</span><span class="p">,</span>
+          <span class="ss">:fromname</span> <span class="o">=&gt;</span> <span class="s2">"John Doe"</span><span class="p">,</span>
+          <span class="ss">:reply2</span> <span class="o">=&gt;</span> <span class="s2">"test@gmail.com"</span><span class="p">,</span>
+          <span class="ss">:priority</span> <span class="o">=&gt;</span> <span class="s2">"3"</span><span class="p">,</span>
+          <span class="ss">:charset</span> <span class="o">=&gt;</span> <span class="s2">"UTF-8"</span><span class="p">,</span>
+          <span class="ss">:encoding</span> <span class="o">=&gt;</span> <span class="s2">"quoted-printable"</span><span class="p">,</span>
+          <span class="ss">:htmlconstructor</span> <span class="o">=&gt;</span> <span class="s2">"editor"</span><span class="p">,</span>
+          <span class="ss">:html</span> <span class="o">=&gt;</span> <span class="s2">"&lt;h1&gt;My Test Message&lt;/h1&gt;</span><span class="se">\n\n</span><span class="s2">&lt;p&gt;Your birthday %BIRTHDAY%.</span><span class="se">\n\n</span><span class="s2">This is a test message created via the API with PERSONALIZATION Tag.&lt;/p&gt;"</span><span class="p">,</span>
+          <span class="ss">:textconstructor</span> <span class="o">=&gt;</span> <span class="s2">"editor"</span><span class="p">,</span>
+          <span class="ss">:text</span> <span class="o">=&gt;</span> <span class="s2">"# My Test Message</span><span class="se">\n\n</span><span class="s2">This is a test message created via the API."</span><span class="p">,</span>
+          <span class="ss">:"p[</span><span class="si">#{</span><span class="n">list_id</span><span class="si">}</span><span class="ss">]"</span> <span class="o">=&gt;</span> <span class="s2">"</span><span class="si">#{</span><span class="n">list_id</span><span class="si">}</span><span class="s2">"</span>
+          <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">message_add</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+          <span class="n">message_id</span> <span class="o">=</span> <span class="n">response</span><span class="o">[</span><span class="s1">'id'</span><span class="o">]</span>
+</pre></div>
+
+<ol>
+<li>Create Campaign</li>
+</ol><div class="highlight"><pre><span class="n">params</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">:name</span><span class="o">=&gt;</span><span class="s2">"Test 1 Campaign"</span><span class="p">,</span> <span class="ss">:type</span><span class="o">=&gt;</span><span class="s2">"single"</span><span class="p">,</span> <span class="ss">:segmentid</span><span class="o">=&gt;</span><span class="s2">"0"</span><span class="p">,</span> <span class="ss">:sdate</span><span class="o">=&gt;</span><span class="s2">"2013-07-10 04:51:00"</span><span class="p">,</span>
+  <span class="ss">:status</span><span class="o">=&gt;</span><span class="s2">"1"</span><span class="p">,</span> <span class="ss">:public</span><span class="o">=&gt;</span><span class="s2">"1"</span><span class="p">,</span> <span class="ss">:tracklinks</span><span class="o">=&gt;</span><span class="s2">"all"</span><span class="p">,</span> <span class="ss">:trackreads</span><span class="o">=&gt;</span><span class="s2">"1"</span><span class="p">,</span> <span class="ss">:trackreplies</span><span class="o">=&gt;</span><span class="s2">"0"</span><span class="p">,</span> <span class="ss">:trackreadsanalytics</span><span class="o">=&gt;</span><span class="s2">"0"</span><span class="p">,</span> <span class="ss">:'p[9]'</span><span class="o">=&gt;</span> <span class="s1">'9'</span><span class="p">,</span> <span class="ss">:"m[</span><span class="si">#{</span><span class="n">message_id</span><span class="si">}</span><span class="ss">]"</span> <span class="o">=&gt;</span> <span class="s2">"</span><span class="si">#{</span><span class="n">message_id</span><span class="si">}</span><span class="s2">"</span><span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">campaign_create</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+<span class="n">campaign_id</span> <span class="o">=</span> <span class="n">response</span><span class="o">[</span><span class="s1">'id'</span><span class="o">]</span>
+</pre></div>
+
+<ol>
+<li>Send the emails</li>
+</ol><div class="highlight"><pre><span class="n">params</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">:action</span> <span class="o">=&gt;</span> <span class="s2">"test"</span><span class="p">,</span> <span class="ss">:email</span> <span class="o">=&gt;</span><span class="s2">"your@example.com"</span><span class="p">,</span> <span class="ss">:campaignid</span> <span class="o">=&gt;</span><span class="s2">"</span><span class="si">#{</span><span class="n">campaign_id</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="ss">:messageid</span> <span class="o">=&gt;</span><span class="s2">"</span><span class="si">#{</span><span class="n">message_id</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="ss">:type</span> <span class="o">=&gt;</span><span class="s2">"mime"</span> <span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">campaign_send</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+</pre></div>
+
+<h2>
+<a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h2>
+
+<ol>
+<li>Fork it</li>
+<li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+<li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
+<li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+<li>Create new Pull Request</li>
+</ol>
+      </section>
+
+      <footer>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <p>this project by <a href="https://github.com/millisami">millisami</a> can be found on <a href="https://github.com/millisami/active_campaign">GitHub</a></p>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
+        <span class="octocat"></span>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
