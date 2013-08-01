@@ -35,6 +35,11 @@ module ActiveCampaign
       self.class.post('/', body: params)
     end
 
+    def contact_edit(params={})
+      params.merge!({api_key: @api_key, api_action: 'contact_edit', api_output: @api_output})
+      self.class.post('/', body: params)
+    end
+
     def message_add(params={})
       params.merge!({api_key: @api_key, api_action: 'message_add', api_output: @api_output})
       self.class.post('/', body: params)

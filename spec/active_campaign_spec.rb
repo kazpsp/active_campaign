@@ -59,6 +59,16 @@ describe ActiveCampaign do
       expect(response['result_code']).to eql(1)
       expect(response['result_message']).to eql("Contact added")
     end
+
+    it "edit contact", :vcr, record: :new_episodes do
+      params = {:id => 6, :email => 'user2_edited@test.com', :'p[9]' => '9'}
+      # params = {:email => 'user10@test.com', :first_name => 'User10', :last_name => 'Last10'}
+      # response = client.contact_add(params)
+      # params = {:id => response['id'], :email => 'user10_edited@test.com'}
+      response = client.contact_edit(params)
+      expect(response['result_code']).to eql(1)
+      expect(response['result_message']).to eql("Contact updated")
+    end
   end
 
   context "manage messages aka template" do
