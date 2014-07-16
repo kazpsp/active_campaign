@@ -44,6 +44,11 @@ module ActiveCampaign
       params.merge!({api_key: @api_key, api_action: 'message_add', api_output: @api_output})
       self.class.post('/', body: params)
     end
+    
+    def contact_list(params={})
+       params.merge!({api_key: @api_key, api_action: 'contact_list', api_output: @api_output})
+       self.class.get('/', query: params)
+    end
 
     def campaign_create(params={})
       params.merge!({api_key: @api_key, api_action: 'campaign_create', api_output: @api_output})
